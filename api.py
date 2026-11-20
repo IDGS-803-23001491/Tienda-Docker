@@ -21,3 +21,11 @@ def calcular_compra(compra: Compra):
     subtotal = compra.precio * (1 - compra.descuento / 100)
     total = round(subtotal * 1.16, 2)
     return {"subtotal": round(subtotal, 2), "total": total}
+
+@app.get("/revision")
+def obtener_revision():
+    return {"estado":"ok"}
+
+@app.get("/version")
+def obtener_version():
+    return {"aplicación": "Tienda DevOps", "version": "1.1.0"}

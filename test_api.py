@@ -28,6 +28,12 @@ def test_calcular_compra_descuento_invalido():
     assert response.status_code == 400
     assert response.json()["detail"] == "Descuento Inválido"
 
-@app.get("/version")
-def obtener_version():
-    return {"aplicación": "Tienda DevOps", "version": "1.0.0"}
+def test_version():
+    response = client.get("/version")
+    assert response.status_code == 200
+    assert response.json()["version"] == "1.1.0"
+
+def test_revision():
+    response = client.get("/revision")
+    assert response.status_code == 200
+    assert response.json()["estado"] == "ok"
