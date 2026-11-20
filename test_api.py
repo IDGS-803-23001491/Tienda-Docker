@@ -27,3 +27,7 @@ def test_calcular_compra_descuento_invalido():
     response = client.post("/compra", json = data)
     assert response.status_code == 400
     assert response.json()["detail"] == "Descuento Inválido"
+
+@app.get("/version")
+def obtener_version():
+    return {"aplicación": "Tienda DevOps", "version": "1.0.0"}
